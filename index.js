@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser')
 var cookieSession = require('cookie-session')
 var flash = require('connect-flash');
 var demos = require("./model/demo")
+var PORT = process.env.PORT || 3000;
 //var session = require('express-session')
 var app = express();
 var controller = require("./controllers/controller-admin");
@@ -30,7 +31,9 @@ app.use(flash());
 
 app.set("view engine", "ejs");
 app.set("views", "./views")
-app.listen(3000)
+app.listen(PORT,() => {
+  console.log("conect port success")
+})
 
 //connect mongoosejs
 var mongoose = require('mongoose');
